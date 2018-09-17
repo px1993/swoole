@@ -3,6 +3,7 @@
     "description": "study swoole",
     "type": "library",
     "license": "MIT",
+	"minimum-stability": "stable",
     "authors": [
         {
             "name": "panxin",
@@ -11,11 +12,10 @@
     ],
     "minimum-stability": "dev",
     "require": {
-		"php": ">=7.0",
-		"panxin/swoole-study": "dev-master@dev"
+		"php": ">=7.0"
 	},
 	"autoload":{
-		"psr-4":{
+		"psr4":{
 			"panxin\\Swoole\\": "src/panxin/Swoole"
 		}
 	}
