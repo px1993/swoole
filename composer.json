@@ -1,25 +1,22 @@
 {
-    "name": "panda/swoole-study",
+    "name": "panxin/swoole-study",
     "description": "study swoole",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "panda",
+            "name": "panxin",
             "email": "439708795@qq.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
 		"php": ">=7.0",
-		"panda/swoole-study":"dev-master@dev"
+		"panxin/swoole-study": "dev-master@dev"
 	},
-	 "require-dev": {
-        "phpunit/phpunit": "^5.6"
-    },
 	"autoload":{
 		"psr-4":{
-			"panda\\Swoole\\":"src/panda/Swoole"
+			"panxin\\Swoole\\": "src/panxin/Swoole"
 		}
 	}
 }
