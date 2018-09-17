@@ -3,7 +3,6 @@
     "description": "study swoole",
     "type": "library",
     "license": "MIT",
-	"minimum-stability": "stable",
     "authors": [
         {
             "name": "panxin",
