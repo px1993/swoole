@@ -1,7 +1,7 @@
 {
     "name": "panxin/swoole-study",
-    "description": "study swoole",
-    "type": "library",
+    "description": "study swoole,make demo",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
