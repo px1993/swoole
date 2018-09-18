@@ -14,7 +14,7 @@
 		"php": ">=7.0"
 	},
 	"autoload":{
-		"psr4":{
+		"psr-4":{
 			"panxin\\Swoole\\": "src/panxin/Swoole"
 		}
 	}
