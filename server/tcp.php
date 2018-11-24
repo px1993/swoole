@@ -16,18 +16,23 @@ $server->set([
 ]);
 
 //监听连接进入事件
-$server->on('connect', function ($serv, $fd, $reactor_id) {
-    echo "Client: {$reactor_id} -- {$fd} Connect.\n";
+$server->on('connect', function ($serv, $fd, $reactor_id){
+	echo "Server进程ID:".posix_getpid()." \tClient:$fd 进程ID:$reactor_id: Connect.\n";
 });
 
 //监听数据接收事件
-$server->on('receive', function ($serv, $fd, $from_id, $data) {
-    $serv->send($fd, "Client: {$from_id} -- {$fd} \n".$data);
+$server->on('receive', function (swoole_server $serv, $fd, $reactor_id, $data) {
+    echo "[#".$serv->worker_id."]\tClient[$fd] receive data: $data\n";
+    if ($serv->send($fd, "hello {$data}\n") == false)
+    {
+        echo "error\n";
+    }
 });
 
+
 //监听连接关闭事件
-$server->on('close', function ($serv, $fd) {
-    echo "Server: Client: {$fd} Close.\n";
+$server->on('close', function ($serv, $fd, $reactor_id) {
+	echo "[#".posix_getpid()."]\tClient@[$fd:$reactor_id]: Close.\n";
 });
 
 //启动服务器
