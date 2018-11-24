@@ -17,17 +17,17 @@ $server->set([
 
 //监听连接进入事件
 $server->on('connect', function ($serv, $fd, $reactor_id) {
-    echo "Server: {$serv} \t Client: {$reactor_id} -- {$fd} Connect.\n";
+    echo "Client: {$reactor_id} -- {$fd} Connect.\n";
 });
 
 //监听数据接收事件
 $server->on('receive', function ($serv, $fd, $from_id, $data) {
-    $serv->send($fd, "Server: {$serv} \t Client: {$from_id} -- {$fd} \n".$data);
+    $serv->send($fd, "Client: {$from_id} -- {$fd} \n".$data);
 });
 
 //监听连接关闭事件
 $server->on('close', function ($serv, $fd) {
-    echo "Server: {$serv} \t Client: {$fd} Close.\n";
+    echo "Server: Client: {$fd} Close.\n";
 });
 
 //启动服务器
