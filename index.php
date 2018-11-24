@@ -9,6 +9,6 @@ namespace Swoole;
 
 use Swoole\Server\TcpServer;
 
-$serv = new TcpServer();
+$serv = new TcpServer('127.0.0.1','9501');
 
 var_dump($serv);
