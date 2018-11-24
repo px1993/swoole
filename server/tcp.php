@@ -20,12 +20,12 @@ $server->set([
 
 //监听连接进入事件
 $serv->on('connect', function ($serv, $fd, $reactor_id) {
-    echo "Server: {$serv} \n Client: {$fd} Connect.\n ReactorId: {$reactor_id}";
+    echo "Client: {$reactor_id} -- {$fd} Connect.\n";
 });
 
 //监听数据接收事件
 $serv->on('receive', function ($serv, $fd, $from_id, $data) {
-    $serv->send($fd, "Server: $serv \n Client: {$fd} \n ReactorId: {$from_id}".$data);
+    $serv->send($fd, "Server: {$serv} \n Client: {$fd} \n ReactorId: {$from_id}".$data);
 });
 
 //监听连接关闭事件
