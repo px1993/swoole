@@ -14,7 +14,7 @@ class Server
      * swoole 服务器
      * @var swoole_server
      */
-    protectd $server;
+    protected $server;
 
 
     /**
