@@ -15,7 +15,7 @@ $server->set([
     'backlog'       => 128,
     'max_request'   => 50,
     'dispatch_mode' => 1,
-    'max_conn'      => 2,
+    'max_conn'      => 40,
 ]);
 
 //监听连接进入事件
