@@ -9,6 +9,8 @@
 //创建Server对象，监听 127.0.0.1:9501端口
 $server = new swoole_server("127.0.0.1", 9501);
 
+var_dump($server);exit;
+
 //设置
 $server->set([
     'worker_num'    => 4,

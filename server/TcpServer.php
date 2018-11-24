@@ -13,13 +13,17 @@ class TcpServer extends Server{
     {
         parent::__construct($host,$port);
 
-        self::$server->set([
+        $this->server->set([
             'worker_num'    => 4,
             'max_request'   => 50,
             'dispatch_mode' => 1,
         ]);
-        parent::onConnect();
-        parent::onReceive();
-        parent::onClose();
+        $this->onConnect();
+        $this->onReceive();
+        $this->onClose();
     }
 }
+
+$serv = new TcpServer('127.0.0.1',9501);
+
+$serv->start();
