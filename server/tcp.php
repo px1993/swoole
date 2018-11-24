@@ -10,12 +10,9 @@
 $server = new swoole_server("127.0.0.1", 9501);
 
 $server->set([
-    'reactor_num'   => 2,
     'worker_num'    => 4,
-    'backlog'       => 128,
     'max_request'   => 50,
     'dispatch_mode' => 1,
-    'max_conn'      => 40,
 ]);
 
 //监听连接进入事件
