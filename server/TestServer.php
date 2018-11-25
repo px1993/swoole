@@ -13,7 +13,7 @@ class TestServer{
         $this->serv = new swoole_server("0.0.0.0", 9501);
         $this->serv->set(array(
             'worker_num' => 1,   //一般设置为服务器CPU数的1-4倍
-            'daemonize' => 1,  //以守护进程执行
+            'daemonize' => 0,  //以守护进程执行
             'max_request' => 10000,
             'dispatch_mode' => 2,
             'task_worker_num' => 8,  //task进程的数量
@@ -34,7 +34,7 @@ class TestServer{
     public function onTask($serv,$task_id,$from_id, $data) {
         $array = json_decode( $data , true );
         if ($array['url']) {
-            return $this->httpGet( $array['url'] , $array['param']  );
+            var_dump($this->httpGet( $array['url'] , $array['param']  ));
         }
 
     }
@@ -59,4 +59,5 @@ class TestServer{
     }
 }
 
-$server = new Server();
+$server = new TestServer();
+$server->start();
