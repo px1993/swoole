@@ -14,18 +14,6 @@ class SimpleServer{
 		if(null === $this->_serv){
 			$this->_serv = new Swoole_Server($host,$port,$mode,$sock_type);
 		}
-
-		//加载配置
-		$this->_serv->set($this->_config);
-
-		//封装回调函数连接swoole
-		$this->onConnect();
-
-		//封装回调函数接收信息
-		$this->onReceive();
-
-		//封装回调函数，关闭服务
-		//$this->onClose();
 	}
 
 	//连接服务

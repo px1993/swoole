@@ -6,14 +6,11 @@
  * Time: 21:05
  */
 
-//namespace Swoole;
+include 'simpleServer/SimpleTcpServer.php';
 
-//use Swoole\Server\TcpServer;
 
-include 'server/Server.php';
-include 'server/TcpServer.php';
-
-$serv = new \Swoole\Server\TcpServer('0.0.0.0',9501);
-$serv->start();
+$serv = new SimpleTcpServer('127.0.0.1',9501);
 
 var_dump($serv);
+
+//$serv->start();
