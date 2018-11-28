@@ -3,20 +3,36 @@
 include 'SimpleServer.php';
 
 class SimpleTcpServer extends SimpleServer{
-	public function __construct($host,$port){
-		//初始化
-	    parent::__construct($host,$port);
+	//tcpServer
+	protected $_serv;	
 
-        //加载配置
-        $this->_serv->set($this->_config);
+	public function __construct(string $host,int $port,array $config = []){
 
-        //封装回调函数连接swoole
-        $this->onConnect();
+		parent::__construct($host,$port);		
 
-        //封装回调函数接收信息
-        $this->onReceive();
+		$this->_config = $config;
+		
+		//加载配置
+		$this->setConfig();
+		
+		//封装回调函数连接swoole
+        	$this->onConnect();
 
-        //封装回调函数，关闭服务
-        //$this->onClose();
+        	//封装回调函数接收信息
+		$this->onReceive();
+	
+	        //封装回调函数，关闭服务
+        	//$this->onClose();
+
 	}
+
+	//重构receive方法
+//	public function receive(){
+//		$returnData = $this->onReceive();
+//		if(!$returnData || !is_array($returnData)){
+//			echo '服务器接收数据出错！';
+//			exit;
+//		}
+//	  	return $returnData;
+//	}
 }

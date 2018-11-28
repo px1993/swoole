@@ -9,8 +9,22 @@
 include 'simpleServer/SimpleTcpServer.php';
 
 
-$serv = new SimpleTcpServer('127.0.0.1',9501);
+$config = [
+	'worker_num'  => 4,
+	'max_request' => 10000,
+];
 
-var_dump($serv);
+$serv = new SimpleTcpServer('127.0.0.1',9501,$config);
 
-//$serv->start();
+$serv->onStart();
+
+//$serv->onClose;
+
+//var_dump($serv);
+
+
+//$data = $serv->receive();
+
+//var_dump($data);
+
+
