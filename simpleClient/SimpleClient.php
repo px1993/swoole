@@ -12,7 +12,7 @@ class SimpleClient{
 		
 		$this->_sock_type = $sock_type;
 
-		//实例化swool客户端，单例模式
+		//实例化swoole客户端，单例模式
 		if(null === $this->_client){				
 			$this->_client = new swoole_client($this->_sock_type);		
 		}
